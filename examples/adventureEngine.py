@@ -5,8 +5,8 @@
 #
 
 from pyparsing import *
-import random
 import string
+import secrets
 
 
 def aOrAn(item):
@@ -66,7 +66,7 @@ class Room:
     def describe(self):
         print(self.desc)
         visibleItems = [it for it in self.inv if it.isVisible]
-        if random.random() > 0.5:
+        if secrets.SystemRandom().random() > 0.5:
             if len(visibleItems) > 1:
                 is_form = "are"
             else:
@@ -485,8 +485,7 @@ class Parser:
             print(pe.msg)
         except ParseException as pe:
             print(
-                random.choice(
-                    [
+                secrets.choice([
                         "Sorry, I don't understand that.",
                         "Huh?",
                         "Excuse me?",
