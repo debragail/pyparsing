@@ -264,7 +264,7 @@ class DoorsCommand(Command):
 
     def _doCommand(self, player):
         rm = player.room
-        numDoors = sum([1 for r in rm.doors if r is not None])
+        numDoors = sum(1 for r in rm.doors if r is not None)
         if numDoors == 0:
             reply = "There are no doors in any direction."
         else:
