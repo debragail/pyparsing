@@ -6,6 +6,7 @@
 #
 import statemachine
 import documentsignoffstate
+import secrets
 
 print(
     "\n".join(
@@ -20,7 +21,6 @@ class Document(documentsignoffstate.DocumentRevisionStateMixin):
 
 
 def run_demo():
-    import random
 
     doc = Document()
     print(doc)
@@ -37,7 +37,7 @@ def run_demo():
         print(doc)
         print(doc.state.description)
 
-        if random.randint(1, 10) > 3:
+        if secrets.SystemRandom().randint(1, 10) > 3:
             print("...reject")
             doc.reject()
         else:
