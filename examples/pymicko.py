@@ -1663,9 +1663,9 @@ if 0:
     # if you want to see the final symbol table, uncomment next line
     # mc.symtab.display()
     try:
-        out = open(output_file, "w")
-        out.write(mc.codegen.code)
-        out.close
+        with open(output_file, "w") as out:
+            out.write(mc.codegen.code)
+            out.close
     except Exception:
         print("Output file '%s' open error" % output_file)
         exit(2)
